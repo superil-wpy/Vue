@@ -1,0 +1,65 @@
+input,select {
+	outline: none; /*去掉默认蓝色边框*/
+	padding-left: 10px;
+	border-radius: 4px;
+}
+button {
+	border-radius: 4px;
+	text-align: center;
+	outline: none;
+	border: 0px;
+}
+button.green {
+	background-color: #1ab394;
+}
+button.red {
+	background-color: #ed5565;
+}
+#panel {
+	width: 600px;
+	border: 1px solid #cacbcc;
+	margin: 50px;
+}
+.form-group {
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+.form-group label {
+	width: 150px;
+    display: inline-block;
+    text-align: right;
+    margin-right: 5px;
+}
+.form-group>button {
+	margin-left: 150px;
+}
+.form-group input,select {
+	height:20px;
+	border: 1px solid #cacbcc;
+}
+.table-panel {
+	width: 600px;
+	border-top: 1px solid #cacbcc;
+}
+.table-panel table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.table-panel thead {
+	background-color: #1ab394;
+}
+.table-panel tbody tr td {
+	border-top: 1px solid #cacbcc;
+	width: 25%;
+	font-size: 14px;
+}
+.table-panel td:not(:last-child),th:not(:last-child) {
+	border-right: 1px solid #cacbcc;
+}
+.table-panel table th,td {
+	text-align: center;
+	height: 30px;
+}
+.table-panel tr:nth-child(even) {
+	background-color: #e3e5e6;
+}

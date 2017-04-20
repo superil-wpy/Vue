@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<link href = "demo.css" rel = "stylesheet">
+	</head>
+	<body>
+		<div id = "panel">
+			<div class = "div-panel">
+				<div class = "form-group">
+					<label>name:</label><input type = "text" class="normal-input" v-model = "newPerson.name" />
+				</div>
+				<div class = "form-group">
+					<label>age:</label><input type = "text" class="normal-input" v-model = "newPerson.age" />
+				</div>
+				<div class = "form-group">
+					<label>sex:</label
+					><select v-model = "newPerson.sex">
+						<option value = "male">male</option>
+						<option value = "female">female</option>
+					</select>
+				</div>
+				<div class = "form-group">
+					<button class = "green" id = "create-person" @click = "createPerson">create</button>
+				</div>
+			</div>
+			<div class = "table-panel">
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Age</th>
+							<th>Sex</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody v-if = "people.length > 0"><!-- v-if 和v-for不能同时使用，嵌套还行 -->
+						<tr v-for = "person in people">
+							<td>{{person.name}}</td>
+							<td>{{person.age}}</t d>
+							<td>{{person.sex}}</td>
+							<td><button class = "red" @click = "deletePerson">delete</button></td>
+						</tr>
+					</tbody>
+					<tbody v-else>
+						<tr>
+							<td>—</td>
+							<td>—</td>
+							<td>—</td>
+							<td>—</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+	<script src = "vue.js"></script>
+	<script>
+		var vm = new Vue({
+			el: '#panel',
+			data: {
+				newPerson: {
+					name: '',
+					age: '',
+					sex: 'male',
+				},
+				people: [{
+					name: 'superil',
+					age: 25,
+					sex: 'female',
+				},
+				{
+					name: 'valim',
+					age: 25,
+					sex: 'male'
+				},]
+			},
+			methods: {
+				createPerson: function() {
+					if (this.newPerson.name == '' || this.newPerson.age == '') {
+						alert('Incomplete information');
+					} else {
+						this.people.push(this.newPerson);
+						this.newPerson = {
+							name: '',
+							age: '',
+							sex: 'male'
+						}
+					}
+				},
+				deletePerson: function(index) {
+					this.people.splice(index,1);
+				}
+			}
+		});
+
+	</script>
+</html>
